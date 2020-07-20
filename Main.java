@@ -1,6 +1,9 @@
 package readability;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Locale;
 import java.util.Scanner;

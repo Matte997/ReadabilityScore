@@ -1,13 +1,5 @@
 package readability;
-/*
-Il codice ricava gli indici ARI, SMOG, FL e CL che vengono usati nel calcolare la "leggibilità" di un testo
-in base all'età
 
-indice ARI -> https://en.wikipedia.org/wiki/Automated_readability_index
-indice FL -> https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests
-indice SMOG -> https://en.wikipedia.org/wiki/SMOG
-indice CL -> https://en.wikipedia.org/wiki/Coleman%E2%80%93Liau_index
- */
 import java.io.*;
 import java.text.DecimalFormat;
 import java.util.Locale;
@@ -33,13 +25,7 @@ public class Main {
             while ((line = br.readLine()) != null) {
                 String[] word = line.split(" ");
                 parole = word.length;
-                /*
-                Per contare le sillabe uso le seguenti regole:
-                1. Count the number of vowels in the word.
-                2. Do not count double-vowels (for example, "rain" has 2 vowels but is only 1 syllable)
-                3. If the last letter in the word is 'e' do not count it as a vowel (for example, "side" is 1 syllable)
-                4. If at the end it turns out that the word contains 0 vowels, then consider this word as 1-syllable.
-                 */
+
                 String[] syllables = line.split("(?i)[aeiouy]+");
                 sillabe = syllables.length;
 

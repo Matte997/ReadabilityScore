@@ -12,4 +12,6 @@ Rules to count syllables are the following:
    3. If the last letter in the word is 'e' do not count it as a vowel (for example, "side" is 1 syllable)
    4. If at the end it turns out that the word contains 0 vowels, then consider this word as 1-syllable.
    
-   Polysyllable are words that contains 3 or more syllables
+Polysyllable are words that contains 3 or more syllables
+
+To run + compile the code use java Main.java textName

@@ -26,10 +26,10 @@ public class Main {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((line = br.readLine()) != null) {
                 String[] word = line.split(" ");
-                parole = word.length;
+                parole += word.length;
 
                 String[] syllables = line.split("(?i)[aeiouy]+|[\\d]+th");
-                sillabe = syllables.length;
+                sillabe += syllables.length;
 
                 for (String parola : word) {
                     char beforeE = parola.charAt(parola.length() - 2);
@@ -47,7 +47,7 @@ public class Main {
                     if (parola.matches("[\\w]+[?.!,]")) {
                         if (beforeE == 'e') {
                             char letterBefore = parola.charAt(parola.length() - 3);
-                            
+
                             if (letterBefore == 'a' || letterBefore == 'e'
                                 || letterBefore == 'i' || letterBefore == 'o'
                                     || letterBefore == 'u' || letterBefore == 'y') {
@@ -58,10 +58,10 @@ public class Main {
                     }
                 }
                 String[] characters = line.replaceAll(" ", "").split("");
-                lettere = characters.length;
+                lettere += characters.length;
 
                 String[] sentences = line.split("[.?!]");
-                frasi = sentences.length;
+                frasi += sentences.length;
 
                 for (String parola : word) {
                     Matcher match = Pattern.compile("(?i)[aeiouy]+").matcher(parola);
@@ -86,11 +86,11 @@ public class Main {
                         poliSillabe++;
                     }
                 }
-                System.out.println(line + "\n");
+                System.out.println(line);
             }
         }
 
-        System.out.println("Words: " + (int)parole + "\nSentences: " + (int)frasi + "\nCharacters: " + (int) lettere
+        System.out.println("\nWords: " + (int)parole + "\nSentences: " + (int)frasi + "\nCharacters: " + (int) lettere
                 + "\nSyllables: " + (int)sillabe + "\nPolysyllables: " + (int)poliSillabe);
 
         double indiceARI = 4.71 * (lettere / parole) + 0.5 * (parole / frasi) - 21.43;

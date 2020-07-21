@@ -32,13 +32,27 @@ public class Main {
                 sillabe = syllables.length;
 
                 for (String parola : word) {
+                    char beforeE = parola.charAt(parola.length() - 2);
+
                     if (parola.split("(?i)[aeiouy]+").length > 1
                             && parola.endsWith("e")) {
+                        if (beforeE == 'a' || beforeE == 'e'
+                                || beforeE == 'i' || beforeE == 'o'
+                                || beforeE == 'u' || beforeE == 'y') {
+                            continue;
+                        }
                         sillabe--;
                     }
 
                     if (parola.matches("[\\w]+[?.!,]")) {
-                        if (parola.charAt(parola.length() - 2) == 'e') {
+                        if (beforeE == 'e') {
+                            char letterBefore = parola.charAt(parola.length() - 3);
+                            
+                            if (letterBefore == 'a' || letterBefore == 'e'
+                                || letterBefore == 'i' || letterBefore == 'o'
+                                    || letterBefore == 'u' || letterBefore == 'y') {
+                                continue;
+                            }
                             sillabe--;
                         }
                     }

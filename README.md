@@ -1,4 +1,5 @@
 # ReadabilityScore
+
 This code allows to calculate some readability index form a given text who must be added from the command line after the code compilation
 Indexes:
  -  Automated Readability Score : https://en.wikipedia.org/wiki/Automated_readability_index
@@ -12,6 +13,8 @@ Rules to count syllables are the following:
    3. If the last letter in the word is 'e' do not count it as a vowel (for example, "side" is 1 syllable)
    4. If at the end it turns out that the word contains 0 vowels, then consider this word as 1-syllable.
    
-Polysyllable are words that contains 3 or more syllables
+Polysyllable are words that contains more than 2 syllables
 
-To run + compile the code use java Main.java textName
+It's important to note that 'y' is considered a vowel 97.5% but in the cases where it is seen a consonant it's followed by a vowel (es. yello, yacth, yesterday..) so the indexes accuracy is 100%
+
+To run + compile the code use the shortcut "java Main.java textName" in the right directory to prevent the creation of .class file

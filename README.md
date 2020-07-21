@@ -19,4 +19,4 @@ It's important to note that 'y' is considered a vowel 97.5% but in the cases whe
 
 Currently the code work with a single line
 
-To run + compile the code use the shortcut "java Main.java textName" in the right directory to prevent the creation of .class file
+To run + compile use the shortcut "java Main.java textName" in the right directory to prevent the creation of .class file

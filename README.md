@@ -18,6 +18,6 @@ Polysyllable are words that contains more than 2 syllables
 It's important to note that 'y' is considered a vowel 97.5% but in the cases where it is seen as a consonant it's followed by a vowel (es. yello, yacth, yesterday..)
 
 Issues:
-      Currently the code work with a single line
+  1. Throw StringIndexOutOfBoundsException if a line in the file is empty
 
 To run + compile use the shortcut "java Main.java textName" in the right directory to prevent the creation of .class file

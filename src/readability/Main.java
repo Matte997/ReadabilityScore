@@ -12,10 +12,9 @@ import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //modifico il separatore dei numeri decimali da "," a "."
         Locale.setDefault(new Locale("en", "US"));
         Scanner scanner = new Scanner(System.in);
-        //il testo da leggere è un file che viene inserito nella riga di comandi come primo argomento
+
         File file = new File(args[0]);
 
         String line;
@@ -29,7 +28,7 @@ public class Main {
                 String[] word = line.split(" ");
                 parole = word.length;
 
-                String[] syllables = line.split("(?i)[aeiouy]+");
+                String[] syllables = line.split("(?i)[aeiouy]+|[\\d]+th");
                 sillabe = syllables.length;
 
                 for (String parola : word) {
@@ -43,11 +42,6 @@ public class Main {
                             sillabe--;
                         }
                     }
-
-                    if (parola.matches("[\\d]+th")) {
-                        sillabe++;
-                    }
-
                 }
                 String[] characters = line.replaceAll(" ", "").split("");
                 lettere = characters.length;
@@ -85,13 +79,10 @@ public class Main {
         System.out.println("Words: " + (int)parole + "\nSentences: " + (int)frasi + "\nCharacters: " + (int) lettere
                 + "\nSyllables: " + (int)sillabe + "\nPolysyllables: " + (int)poliSillabe);
 
-        double CLIL = lettere / parole * 100;
-        double CLIS = frasi / parole * 100;
-
         double indiceARI = 4.71 * (lettere / parole) + 0.5 * (parole / frasi) - 21.43;
         double indiceFK = 0.39 * (parole / frasi) + 11.8 * (sillabe / parole) - 15.59;
         double indiceSMOG = 1.0430 * Math.sqrt(poliSillabe * (30 / frasi)) + 3.1291;
-        double indiceCL = 0.0588 * CLIL - 0.296 * CLIS - 15.8;
+        double indiceCL = 0.0588 * (lettere / parole * 100) - 0.296 * (frasi / parole * 100) - 15.8;
 
         String[] eta = {"null", "6", "7", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "24", "24+"};
 
